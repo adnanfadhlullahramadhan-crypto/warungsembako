@@ -8,16 +8,22 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-        body {
+        * {
             margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: #c892e7;
-            color: #333;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* HEADER */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f6f4ef;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* HEADER RESPONSIVE */
         .header {
-            background: url('https://images.unsplash.com/photo-1607082349250-c48f8fda8b1d?auto=format&fit=crop&w=1200&q=80') center/cover;
+            background: url('https://images.unsplash.com/photo-1607082349250-c48f8fda8b1d?auto=format&fit=crop&w=1600&q=80') center/cover;
             height: 55vh;
             display: flex;
             align-items: center;
@@ -28,35 +34,38 @@
         }
 
         .header h1 {
-            font-size: 3rem;
+            font-size: clamp(1.8rem, 4vw, 3.5rem);
             text-shadow: 0 5px 25px rgba(0,0,0,0.5);
+            padding: 0 20px;
         }
 
-        /* PROMO BANNER */
+        /* PROMO */
         .promo {
             background: #ffbb54;
             padding: 15px;
             text-align: center;
             font-weight: bold;
-            font-size: 1.2rem;
-            color: #5a3d1a;
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
         }
 
-        /* MENU */
+        /* PRODUK */
         .menu {
             padding: 50px 20px;
             text-align: center;
         }
 
         .menu h2 {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
             margin-bottom: 20px;
         }
 
         .menu-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
         }
 
         .menu-item {
@@ -69,52 +78,46 @@
 
         .menu-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
         .menu-item img {
             width: 100%;
-            border-radius: 15px;
             height: 160px;
             object-fit: cover;
-        }
-
-        .menu-item h3 {
-            margin: 10px 0;
-        }
-
-        .menu-item p {
-            color: #777;
+            border-radius: 15px;
         }
 
         .btn-beli {
             background: #ff8c32;
-            margin-top: 8px;
             color: #fff;
             border: none;
-            padding: 8px 12px;
+            padding: 10px;
             width: 100%;
             border-radius: 10px;
+            margin-top: 10px;
             cursor: pointer;
-            font-size: 0.9rem;
+            font-size: 1rem;
             transition: .2s;
         }
 
         .btn-beli:hover {
-            background: #ff7b0a;
+            background: #ff7514;
         }
 
         /* CART */
         #cart {
             background: #fff;
-            padding: 20px;
-            margin: 40px 20px;
+            padding: 25px;
+            margin: 40px auto;
             border-radius: 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 600px;
         }
 
         #cart h2 {
             text-align: center;
+            font-size: clamp(1.5rem, 3vw, 2rem);
         }
 
         /* MAP */
@@ -125,7 +128,7 @@
 
         .map iframe {
             width: 100%;
-            height: 300px;
+            height: clamp(250px, 40vh, 400px);
             border-radius: 20px;
             border: none;
         }
@@ -135,8 +138,21 @@
             background: #2b2b2b;
             color: #ddd;
             text-align: center;
-            padding: 20px 10px;
-            margin-top: 40px;
+            padding: 20px;
+            font-size: clamp(0.8rem, 2vw, 1rem);
+        }
+
+        /* MEDIA QUERY TAMBAHAN */
+        @media (max-width: 450px) {
+            .menu-item img {
+                height: 140px;
+            }
+        }
+
+        @media (min-width: 1500px) {
+            .header {
+                height: 45vh;
+            }
         }
     </style>
 </head>
@@ -144,10 +160,10 @@
 
     <!-- HEADER -->
     <div class="header">
-        <h1>Warung Sembako Ibu Susi</h1>
+        <h1>Warung Sembako Aesthetic</h1>
     </div>
 
-    <!-- PROMO BANNER -->
+    <!-- PROMO -->
     <div class="promo">
         Promo Spesial Hari Ini! Diskon hingga 20% untuk produk tertentu 🎉
     </div>
@@ -173,7 +189,7 @@
             </div>
 
             <div class="menu-item">
-                <img src="hhttps://pasarsegar.co.id/wp-content/uploads/2022/11/71faa2b0-05e0-4263-aa67-2b4b12ec9a95_Gulaku-Gula-Pasir-1-kg-4-1-1.jpeg">
+                <img src="https://images.unsplash.com/photo-1587245934784-cd216f52fbea?auto=format&fit=crop&w=600&q=80">
                 <h3>Gula Pasir 1kg</h3>
                 <p>Rp 14.000</p>
                 <button class="btn-beli" onclick="addToCart('Gula Pasir', 14000)">Beli</button>
@@ -189,7 +205,7 @@
         </div>
     </section>
 
-    <!-- KERANJANG BELANJA -->
+    <!-- KERANJANG -->
     <div id="cart">
         <h2>Keranjang Belanja 🛒</h2>
         <ul id="cart-items"></ul>
@@ -199,7 +215,9 @@
     <!-- MAP -->
     <div class="map">
         <h2>Lokasi Warung</h2>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4836103994944!2d107.01715677355396!3d-6.199749860732072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6989099bfe6865%3A0x7c6d2387377ea339!2sWarung%20Sembako%20ADNAN!5e0!3m2!1sid!2sid!4v1765124916427!5m2!1sid!2sid" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.0439832304585!2d110.3695!3d-7.8806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNTInNDAuMiJTIDExMMKwMjInMDkuOSJF!5e0!3m2!1sid!2sid!4v0000000000">
+        </iframe>
     </div>
 
     <!-- FOOTER -->
@@ -207,19 +225,16 @@
         <p>© 2025 Warung Sembako Aesthetic — Belanja Hemat Setiap Hari</p>
     </footer>
 
-
-    <!-- SCRIPT KERANJANG -->
+    <!-- SCRIPT -->
     <script>
         let total = 0;
 
         function addToCart(nama, harga) {
-            const cartItems = document.getElementById('cart-items');
-            const li = document.createElement('li');
+            const li = document.createElement("li");
             li.textContent = `${nama} - Rp ${harga.toLocaleString()}`;
-            cartItems.appendChild(li);
-
+            document.getElementById("cart-items").appendChild(li);
             total += harga;
-            document.getElementById('total').textContent = total.toLocaleString();
+            document.getElementById("total").textContent = total.toLocaleString();
         }
     </script>
 
