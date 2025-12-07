@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warung Sembako Aesthetic</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #c892e7;
+            color: #333;
+        }
+
+        /* HEADER */
+        .header {
+            background: url('https://images.unsplash.com/photo-1607082349250-c48f8fda8b1d?auto=format&fit=crop&w=1200&q=80') center/cover;
+            height: 55vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            text-shadow: 0 5px 25px rgba(0,0,0,0.5);
+        }
+
+        /* PROMO BANNER */
+        .promo {
+            background: #ffbb54;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #5a3d1a;
+        }
+
+        /* MENU */
+        .menu {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .menu h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .menu-item {
+            background: #fff;
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: .3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .menu-item img {
+            width: 100%;
+            border-radius: 15px;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .menu-item h3 {
+            margin: 10px 0;
+        }
+
+        .menu-item p {
+            color: #777;
+        }
+
+        .btn-beli {
+            background: #ff8c32;
+            margin-top: 8px;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: .2s;
+        }
+
+        .btn-beli:hover {
+            background: #ff7b0a;
+        }
+
+        /* CART */
+        #cart {
+            background: #fff;
+            padding: 20px;
+            margin: 40px 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        #cart h2 {
+            text-align: center;
+        }
+
+        /* MAP */
+        .map {
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 300px;
+            border-radius: 20px;
+            border: none;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #2b2b2b;
+            color: #ddd;
+            text-align: center;
+            padding: 20px 10px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>Warung Sembako Ibu Susi</h1>
+    </div>
+
+    <!-- PROMO BANNER -->
+    <div class="promo">
+        Promo Spesial Hari Ini! Diskon hingga 20% untuk produk tertentu 🎉
+    </div>
+
+    <!-- PRODUK -->
+    <section class="menu">
+        <h2>Produk Unggulan</h2>
+
+        <div class="menu-container">
+
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1592928302932-53bd59a969eb?auto=format&fit=crop&w=600&q=80">
+                <h3>Beras Premium 5kg</h3>
+                <p>Rp 65.000</p>
+                <button class="btn-beli" onclick="addToCart('Beras Premium', 65000)">Beli</button>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1585238342028-996c7a1f9f9b?auto=format&fit=crop&w=600&q=80">
+                <h3>Minyak Goreng 1L</h3>
+                <p>Rp 15.000</p>
+                <button class="btn-beli" onclick="addToCart('Minyak Goreng', 15000)">Beli</button>
+            </div>
+
+            <div class="menu-item">
+                <img src="hhttps://pasarsegar.co.id/wp-content/uploads/2022/11/71faa2b0-05e0-4263-aa67-2b4b12ec9a95_Gulaku-Gula-Pasir-1-kg-4-1-1.jpeg">
+                <h3>Gula Pasir 1kg</h3>
+                <p>Rp 14.000</p>
+                <button class="btn-beli" onclick="addToCart('Gula Pasir', 14000)">Beli</button>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1603048297172-c92544798d6c?auto=format&fit=crop&w=600&q=80">
+                <h3>Telur 1 Rak</h3>
+                <p>Rp 28.000</p>
+                <button class="btn-beli" onclick="addToCart('Telur', 28000)">Beli</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- KERANJANG BELANJA -->
+    <div id="cart">
+        <h2>Keranjang Belanja 🛒</h2>
+        <ul id="cart-items"></ul>
+        <h3>Total: Rp <span id="total">0</span></h3>
+    </div>
+
+    <!-- MAP -->
+    <div class="map">
+        <h2>Lokasi Warung</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4836103994944!2d107.01715677355396!3d-6.199749860732072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6989099bfe6865%3A0x7c6d2387377ea339!2sWarung%20Sembako%20ADNAN!5e0!3m2!1sid!2sid!4v1765124916427!5m2!1sid!2sid" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 Warung Sembako Aesthetic — Belanja Hemat Setiap Hari</p>
+    </footer>
+
+
+    <!-- SCRIPT KERANJANG -->
+    <script>
+        let total = 0;
+
+        function addToCart(nama, harga) {
+            const cartItems = document.getElementById('cart-items');
+            const li = document.createElement('li');
+            li.textContent = `${nama} - Rp ${harga.toLocaleString()}`;
+            cartItems.appendChild(li);
+
+            total += harga;
+            document.getElementById('total').textContent = total.toLocaleString();
+        }
+    </script>
+
+</body>
+</html>
